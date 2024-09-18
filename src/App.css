@@ -1,6 +1,15 @@
 .MainName a{
-  position: absolute;
+  position: absolute; 
   width: 100%;
   text-align: center;
   align-items: center;
 }
+
+.app-container {
+  transition: background-color 0.5s ease; /* 배경 색상 변화 애니메이션 */
+}
+
+.new-background {
+  background-color: #f0f8ff; /* 원하는 배경 색상 */
+}
+

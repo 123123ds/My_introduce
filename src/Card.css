@@ -5,7 +5,7 @@
     flex-wrap: wrap; /* 화면 크기에 따라 카드가 줄 바꿈 되도록 */
     margin: 2px; /* 카드 간의 여백 */
     margin-left: 20%;
-    transition: transform 0.5s ease, opacity 0.5s ease; /* 애니메이션 효과 추가 */
+    transition: transform 0.5s ease, opacity 0.3s ease;
 }
 
 .slide-out {
