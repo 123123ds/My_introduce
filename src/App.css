@@ -1,10 +1,130 @@
+/* App.css */
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+html, body {
+  margin: 0;
+  padding: 0; /* 필요시 패딩도 제거 */
+}
+
+@keyframes moveCloud {
+  0% {
+    transform: translateX(0%); /* 시작 위치 (왼쪽 밖) */
+  }
+  100% {
+    transform: translateX(1800px); /* 끝 위치 (오른쪽 밖) */
+  }
+}
+
+.cloud {
+  position: absolute;
+  border: 1px solid black; /* 구름의 테두리 (디버깅 용도) */
+  top: 20%; /* 수직 위치 조정 */
+  left: -100px; /* 시작 위치 (왼쪽 밖) */
+  width: 200px; /* 구름 크기 */
+  height: auto; /* 비율 유지 */
+  animation: moveCloud 20s linear infinite; /* 애니메이션 설정 */
+  z-index: 3; /* 다른 요소 위에 위치 */
+}
+
 .MainName a{
   position: absolute; 
   width: 100%;
   text-align: center;
   align-items: center;
+  z-index: 3;
 }
 
+.background-image {
+  position: absolute; /* 절대 위치 지정 */
+  top: 17%;
+  left: 25%;
+  width: 48%;
+  height: 50%;
+  z-index: 1; /* 다른 요소 뒤에 배치 */
+  opacity: 80%;
+  background-image: url('./pngegg.png'); /* 상대 경로로 수정 */
+  background-size: cover; /* 이미지 크기 조절 */
+  background-position: center; /* 이미지 위치 조정 */
+}
+
+.sky {
+  background: linear-gradient(to bottom, #87CEEB, #B0E0E6); /* 하늘 색상 */
+  height: 50vh;
+  position: absolute; /* 절대 위치로 설정 */
+  top: 0; /* 상단에 위치 */
+  left: 0; /* 좌측에 위치 */
+  width: 100%; /* 전체 너비 */
+  z-index: 0; /* z-index를 설정하여 뒤쪽에 위치 */
+  transition: transform 0.5s ease, opacity 0.3s ease; /* 애니메이션 효과 추가 */
+}
+
+@keyframes moveSun {
+  0% {
+    transform: translate(100px, 0) rotate(0deg); /* 오른쪽 위치 */
+  }
+  25% {
+    transform: translate(0, 100px) rotate(90deg); /* 아래쪽 위치 */
+  }
+  50% {
+    transform: translate(-100px, 0) rotate(180deg); /* 왼쪽 위치 */
+  }
+  75% {
+    transform: translate(0, -100px) rotate(270deg); /* 위쪽 위치 */
+  }
+  100% {
+    transform: translate(100px, 0) rotate(360deg); /* 오른쪽 위치로 돌아옴 */
+  }
+}
+
+.sun {
+  background: yellow;
+  border-radius: 50%; /* 원형으로 만들기 */
+  width: 100px; /* 해의 크기 */
+  height: 100px;
+  position: absolute;
+  top: 100px; /* 원의 중심 Y 좌표 */
+  left: 100px; /* 원의 중심 X 좌표 */
+  animation: moveSun 10s linear infinite; /* 애니메이션 설정 */
+}
+
+
+
+.hide {
+  transform: translateY(-100%); /* 위로 올라가는 애니메이션 */
+  opacity: 0; /* 사라지는 효과 */
+}
+
+
+@keyframes moveSun {
+  0% {
+      left: -100px; /* 시작 위치 */
+  }
+  50% {
+      left: calc(100vw - 100px); /* 화면 오른쪽 끝으로 이동 */
+  }
+  100% {
+      left: -100px; /* 다시 시작 위치로 이동 */
+  }
+}
+
+.card-slider {
+  width: 80%;
+margin-left: 10%;
+margin-top: 13%;
+transition: transform 0.5s ease, opacity 0.3s ease;
+z-index: 2;
+}
+
+.slide-out {
+  transform: translateY(-100%); /* 위로 올라가는 애니메이션 */
+  opacity: 0; /* 사라지는 효과 */
+}
+
+.slide-in {
+  transform: translateY(0); /* 아래로 내려오는 애니메이션 */
+  opacity: 1; /* 보이는 효과 */
+}
 .Main{
   position: absolute;
   width: 100%;
@@ -16,6 +136,7 @@
 .app-container {
   transition: background-color 0.5s ease; /* 배경 색상 변화 애니메이션 */
 }
+
 
 
 .new-background-1 {
