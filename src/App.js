@@ -2,6 +2,7 @@ import React, { useState, useRef,useEffect } from 'react';
 import Slider from 'react-slick'; // Slick import
 import Card from './Card';
 import BicycleAnimation from './BicycleAnimation';
+
 import './App.css';
 
 function App() {
@@ -47,7 +48,7 @@ function App() {
       } else if (hour >= 12 && hour < 18) {
         setSkyColor('linear-gradient(to bottom, #87CEEB, #B0E0E6)'); // 낮
       } else if (hour >= 18 && hour < 21) {
-        setSkyColor('linear-gradient(to bottom, #FF4500, #FF6347)'); // 저녁
+        setSkyColor('linear-gradient(to bottom, #87CEEB, #B0E0E6)'); // 저녁
       } else {
         setSkyColor('linear-gradient(to bottom, #1E1E1E, #4B0082)'); // 밤
       }
@@ -88,7 +89,7 @@ function App() {
   return (
     <main className='Main'>
       <div className={`app-container ${background}`}>
-      <img className="background-image" />
+
         <nav className='MainName'>
           <a>프론트엔드 자기소개서</a>
           <ul>
@@ -96,10 +97,16 @@ function App() {
           </ul>
         </nav>
 
+        {/* background가 new-background-1부터 new-background-6일 때 하늘과 구름 숨기기 */}
+        {['new-background-1', 'new-background-2', 'new-background-3', 'new-background-4', 'new-background-5', 'new-background-6'].indexOf(background) === -1 && (
         <div className="sky" style={{ background: skyColor }}>
+          <img className="background-image" />
           <div className="sun"></div>
-          <img src="/구름.jpeg" alt="구름" className="cloud" /> {/* 구름 이미지 추가 */}
+          <img src="/구름.jpeg" alt="구름" className="cloud" />
+          <img src="/도로.png" alt="도로" className="road-image" />
         </div>
+      )}
+
 
         {/* 카드 슬라이더 추가 */}
         {visible && (
@@ -182,9 +189,33 @@ function App() {
               <li>4.</li>
               <li>5.</li>
             </ul>
+            <div className='My_img'></div>
+          
+          </div>
+        )}
+        {background === 'new-background-2' && (
+          <div className="additional-content">
+            <h2>사용 가능한 기술 스택들</h2>
+            <p>여기에 추가적인 내용을 작성할 수 있습니다.</p>
+            <img src="/react.png"/>
+          <img src="/js.png" />
+          </div>
+        )}
+
+        {background === 'new-background-3' && (
+          <div className="additional-content">
+            <h2>나의 프로젝트</h2>
+            <p>알바튠</p>
+            <p>알바튠이란 </p>
+            <p>알바튠은 제가 처음으로 만들게 된 프로젝트입니다. 알바튠을 개발하게 된 이유는 엔지니어적보다는 우리가 사업을 하게 된다면 어떤 아이디가 그나마 시장에서 
+              먹힐 수 있을까는 생각하였습니다<br></br>
+              지금 알바와 관련된 가능 유명한 사업은 알바천국,알바몬일것입니다. 이미 독점된 사업이었기에 그들과 다른 서비스를 제공해야 메리트가 있다 
+              생각하여 저희는 알바에 도움이 될수 있는 기능을 탑재하는것으로 차별성을 두기로 하였습니다.              </p>
           </div>
         )}
       </div>
+
+      
       <BicycleAnimation />
     </main>
   );
