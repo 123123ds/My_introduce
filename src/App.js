@@ -32,6 +32,8 @@ function App() {
         setBackground('new-background-2'); 
       } else if (index === 2) {
         setBackground('new-background-3'); 
+      } else if (index === 3) {
+        setBackground('new-background-4'); // 배경 4번 추가
       }
 
       setShowBackButton(true); // 돌아가기 버튼 표시
@@ -86,6 +88,13 @@ function App() {
     pauseOnHover: true, // 마우스 호버 시 일시 정지
   };
 
+  
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % 3); // 0과 1 사이를 토글
+  };
+
   return (
     <main className='Main'>
       <div className={`app-container ${background}`}>
@@ -102,8 +111,8 @@ function App() {
         <div className="sky" style={{ background: skyColor }}>
           <img className="background-image" />
           <div className="sun"></div>
-          <img src="/구름.jpeg" alt="구름" className="cloud" />
-          <img src="/도로.png" alt="도로" className="road-image" />
+          <img className="cloud" />
+          <img className="road-image" />
         </div>
       )}
 
@@ -180,14 +189,16 @@ function App() {
         {background === 'new-background-1' && (
           <div className="additional-content">
             <h2>안녕하세요 프론트엔드 개발자가 되고 싶은 윤여원입니다.</h2>
-            <p>여기에 추가적인 내용을 작성할 수 있습니다.</p>
+            <p>윤여원 프로필</p>
             <ul className='background1Ul'>
               윤여원이란 사람이란?
-              <li>1.</li>
-              <li>2.</li>
-              <li>3.</li>
-              <li>4.</li>
-              <li>5.</li>
+              <li>학력 : 대구가톨릭대학교(4년)</li>
+              <li>전공 : 컴퓨터전공</li>
+              <li>성별 : 남</li>
+              <li>생년월일 : 1998.01.23</li>
+              <li>거주지 : 대구 북구 태전동 현대전원 101동 606호</li>
+              <li>개발 직종 : 프론트엔드</li>
+              <li>개발 프로젝트 : 알바튠, 넥스트</li>
             </ul>
             <div className='My_img'></div>
           
@@ -197,22 +208,53 @@ function App() {
           <div className="additional-content">
             <h2>사용 가능한 기술 스택들</h2>
             <p>여기에 추가적인 내용을 작성할 수 있습니다.</p>
-            <img src="/react.png"/>
-          <img src="/js.png" />
+            <img className="react"/>
+            <img className="js"/>
+          </div>
+        )}
+{background === 'new-background-3' && (
+   <>
+   <div className={`additional-content ${currentIndex === 0 ? 'active' : 'inactive'}`}>
+     <h2>나의 프로젝트</h2>
+     <p>알바튠</p>
+     <p>알바튠이란 </p>
+     <p>
+       알바튠은 제가 처음으로 만들게 된 프로젝트입니다. 알바튠을 개발하게 된 이유는 웹에 대한 기술들을 익히고 적용할 수 있는 웹을 구현할때 좀 더 좋은 내용을 가진 웹을 구현하자 해서 나온 아이디어입니다.
+       <br />
+       지금 알바와 관련된 가능 유명한 사업은 알바천국, 알바몬일 것입니다. 이미 독점된 사업이었기에 그들과 다른 서비스를 제공해야 메리트가 있다 
+       생각하여 저희는 알바에 도움이 될 수 있는 기능을 탑재하는 것으로 차별성을 두기로 하였습니다.
+     </p>
+     <button onClick={handleNext}>이곳을 누르면 다음페이지</button>
+   </div>
+
+   <div className={`additional-content ${currentIndex === 1 ? 'active' : 'inactive'}`}>
+     <h2>나의 프로젝트</h2>
+     <p>알바튠</p>
+     <p>알바튠 소개 </p>
+     <p>알바튠은 일단 리액트를 메인으로 Node Exprees를 서버로 두고 My_sql을 DB를 사용하여 구현한 웹입니다<br></br>
+       이렇게 구상한 이유는 웹의 기초라 불리는 리액트를 먼저 익히기 위해 리액트를 기반으로 웹을 구상하였고 서버는 next처럼 자체 서버가 없기에 exprees로 서버를 구현하였습니다.
+        </p>
+
+     <button onClick={handleNext}>이곳을 누르면 다음페이지</button>
+   </div>
+
+   <div className={`additional-content ${currentIndex === 2 ? 'active' : 'inactive'}`}>
+     <h2>나의 프로젝트</h2>
+     <p>알바튠</p>
+     <p>알바튠 소개 </p>
+   
+
+     <button onClick={handleNext}>이곳을 누르면 다음페이지</button>
+   </div>
+ </>
+)}
+{background === 'new-background-4' && (
+          <div className="additional-content">
+            <h2>나의 프로젝트</h2>
+            <p>여기에 추가적인 내용을 작성할 수 있습니다.</p>
           </div>
         )}
 
-        {background === 'new-background-3' && (
-          <div className="additional-content">
-            <h2>나의 프로젝트</h2>
-            <p>알바튠</p>
-            <p>알바튠이란 </p>
-            <p>알바튠은 제가 처음으로 만들게 된 프로젝트입니다. 알바튠을 개발하게 된 이유는 엔지니어적보다는 우리가 사업을 하게 된다면 어떤 아이디가 그나마 시장에서 
-              먹힐 수 있을까는 생각하였습니다<br></br>
-              지금 알바와 관련된 가능 유명한 사업은 알바천국,알바몬일것입니다. 이미 독점된 사업이었기에 그들과 다른 서비스를 제공해야 메리트가 있다 
-              생각하여 저희는 알바에 도움이 될수 있는 기능을 탑재하는것으로 차별성을 두기로 하였습니다.              </p>
-          </div>
-        )}
       </div>
 
       

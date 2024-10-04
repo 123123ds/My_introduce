@@ -37,16 +37,17 @@ html, body {
   position: absolute;
   width: 300px;
   height: 50px;
-  top: 80%;
+  top: 85%;
   left: 40%;
 }
 
 .My_img{
-  top: 50%;
-  left: 50%;
+  position: absolute;
+  top: 150px;
+  left: 5%;
   border: 1px solid black;
-  width: 400px;
-  height: 400px;
+  width:450px;
+  height: 450px;
   border-radius: 100%;
 }
 .additional-content{
@@ -165,6 +166,71 @@ z-index: 2;
 }
 
 
+.additional-content {
+  transition: transform 1.5s ease, opacity 0.5s ease;
+  position: absolute;
+  width: 100%; /* 필요에 따라 조정 */
+}
+
+.inactive {
+  transform: translateX(-100%); /* 왼쪽으로 이동 */
+  opacity: 0; /* 사라짐 */
+}
+
+.active {
+  transform: translateX(0); /* 원래 위치 */
+  opacity: 1; /* 보임 */
+}
+
+.road-image {
+  background-image: url('./Mainimg/road.png'); /* 현재 디렉토리에서 찾기 */
+  background-size: contain; /* 이미지 비율 유지하며 크기 조정 */
+  background-repeat: no-repeat; /* 이미지 반복 방지 */
+  position: absolute; /* 절대 위치 설정 */
+  top: 800px; /* 바닥에 배치 */
+  left: 0; /* 왼쪽에 배치 */
+  width: 1000px; /* 전체 너비 */
+  height: 200px; /* 높이 설정, 필요에 따라 조정 */
+  z-index: 1000; /* 다른 요소보다 위에 위치하게 설정 */
+}
+
+.cloud {
+  background-image: url('./Mainimg/cloud.jpeg'); /* 현재 디렉토리에서 찾기 */
+  background-size: contain; /* 이미지 비율 유지하며 크기 조정 */
+  background-repeat: no-repeat; /* 이미지 반복 방지 */
+  position: absolute; /* 절대 위치 설정 */
+  top: 100px; /* 바닥에 배치 */
+  left: 0; /* 왼쪽에 배치 */
+  width: 1000px; /* 전체 너비 */
+  height: 200px; /* 높이 설정, 필요에 따라 조정 */
+  z-index: 1000; /* 다른 요소보다 위에 위치하게 설정 */
+}
+
+.react {
+  background-image: url('./react.png'); /* 현재 디렉토리에서 찾기 */
+  background-size: contain; /* 이미지 비율 유지하며 크기 조정 */
+  background-repeat: no-repeat; /* 이미지 반복 방지 */
+  position: absolute; /* 절대 위치 설정 */
+  top: 100px; /* 바닥에 배치 */
+  left: 0; /* 왼쪽에 배치 */
+  width: 1000px; /* 전체 너비 */
+  height: 200px; /* 높이 설정, 필요에 따라 조정 */
+  z-index: 1000; /* 다른 요소보다 위에 위치하게 설정 */
+}
+
+
+.js {
+  background-image: url('./js.png'); /* 현재 디렉토리에서 찾기 */
+  background-size: contain; /* 이미지 비율 유지하며 크기 조정 */
+  background-repeat: no-repeat; /* 이미지 반복 방지 */
+  position: absolute; /* 절대 위치 설정 */
+  top: 400px; /* 바닥에 배치 */
+  left: 0; /* 왼쪽에 배치 */
+  width: 1000px; /* 전체 너비 */
+  height: 200px; /* 높이 설정, 필요에 따라 조정 */
+  z-index: 1000; /* 다른 요소보다 위에 위치하게 설정 */
+}
+
 
 .new-background-1 {
   position: absolute;
@@ -190,6 +256,14 @@ z-index: 2;
   background-color: #ffffff; /* 원하는 배경 색상 */
   z-index: 200;
 }
+
+.new-background-4 {
+  position: absolute;
+  width: 100%;
+  height: 85%;
+  background-color: #ffffff; /* 원하는 배경 색상 */
+  z-index: 200;
+}
 .new-background-1 span{
   position: absolute;
   background: white;
@@ -206,11 +280,11 @@ z-index: 2;
   left: 100%;
   width: 500px;
   height: 500px;
-  left: 1000px;
-  border: 1px solid black;
+  top: 150px;
+  left: 800px;
+  font-size: 18px;
 }
 .background1Ul li{
   margin-top: 20px ;
-  border: 1px solid black;
   list-style: none;
 }
